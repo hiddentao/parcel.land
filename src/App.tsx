@@ -11,6 +11,9 @@ const client = new ApolloClient({
 const App = () => {
   return (
     <ApolloProvider client={client}>
+      <header>
+        <p>Decentraland estate per-parcel prices. Made with ❤️ by <a href="https://twitter.com/hiddentao">hiddentao</a>.</p>
+      </header>
       <Bootstrap />
     </ApolloProvider>
   )
