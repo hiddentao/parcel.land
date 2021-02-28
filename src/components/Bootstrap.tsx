@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react'
+import React, { useMemo, useEffect } from 'react'
 import EthVal from 'ethval'
 import { useLazyQuery } from '@apollo/client'
 import _ from 'lodash'
@@ -48,7 +48,7 @@ const ParcelList: React.FunctionComponent<ParcelListProps> = ({ nfts }) => {
         {final.map((f: any) => (
           <tr key={f.id}>
             <td>
-              <img width="64" height="64" src={f.image} />
+              <img alt='land' width="64" height="64" src={f.image} />
             </td>
             <td>
               <p>{f.name}</p>
@@ -67,7 +67,7 @@ const ParcelList: React.FunctionComponent<ParcelListProps> = ({ nfts }) => {
               <span title={f.expiresAt.toString()}></span>{formatDistanceToNow(f.expiresAt, { addSuffix: true })}
             </td>
             <td>
-              <a target="_blank" href={`https://market.decentraland.org/contracts/${f.contractAddress}/tokens/${f.tokenId}`}>↗️</a>
+              <a href={`https://market.decentraland.org/contracts/${f.contractAddress}/tokens/${f.tokenId}`}>↗️</a>
             </td>
           </tr>
         ))}
@@ -95,7 +95,7 @@ const Bootstrap = () => {
         "expiresAt": `${new Date().getTime()}`
       },
     })
-  }, [])
+  }, [executeQuery ])
 
   if (error) {
     return <p>Error: {error}</p>
